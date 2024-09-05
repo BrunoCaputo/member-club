@@ -1,0 +1,39 @@
+main {
+  margin-top: 4rem;
+  max-width: 57rem;
+  height: 29.125rem;
+
+  display: grid;
+  grid-template-rows: 5.625rem auto 7.3125rem;
+  row-gap: 1rem;
+  grid-template-columns: 0.5fr 1.5fr;
+  column-gap: 1.5rem;
+  grid-template-areas:
+    "profile-info card"
+    "history card"
+    "history gift";
+
+  & .card {
+    border: 1px solid var(--base-gray-300);
+    border-radius: 1rem;
+    background-color: var(--base-gray-100);
+  }
+}
+
+main > aside {
+  &.profile-info {
+    grid-area: profile-info;
+  }
+
+  &.history {
+    grid-area: history;
+  }
+}
+
+main > section.fidelity-card {
+  grid-area: card;
+}
+
+main > footer.gift {
+  grid-area: gift;
+}
