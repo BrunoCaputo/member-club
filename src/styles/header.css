@@ -14,7 +14,8 @@ header {
   & img {
     width: auto;
     height: 2.5rem;
-    object-fit: contain;
+    object-fit: cover;
+    aspect-ratio: 2.44;
   }
 }
 
