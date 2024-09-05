@@ -31,22 +31,31 @@
 
   --ff-base: "Oxygen", sans-serif;
 
-  --title-md: var(--heading-title-md) / 140% 700 var(--ff-base);
-  --title-sm: var(--heading-title-sm) / 140% 700 var(--ff-base);
-  --subtitle-md: var(--heading-subtitle-md) / 140% 700 var(--ff-base);
-  --subtitle-sm: var(--heading-subtitle-sm) / 140% 700 var(--ff-base);
-  --text-md: var(--body-text-md) / 140% 400 var(--ff-base);
-  --text-sm: var(--body-text-sm) / 140% 400 var(--ff-base);
-  --text-xs: var(--body-text-xs) / 140% 400 var(--ff-base);
+  --title-md: 700 var(--heading-title-md) / 1.4 var(--ff-base);
+  --title-sm: 700 var(--heading-title-sm) / 1.4 var(--ff-base);
+  --subtitle-md: 700 var(--heading-subtitle-md) / 1.4 var(--ff-base);
+  --subtitle-sm: 700 var(--heading-subtitle-sm) / 1.4 var(--ff-base);
+  --text-md: 400 var(--body-text-md) / 1.4 var(--ff-base);
+  --text-sm: 400 var(--body-text-sm) / 1.4 var(--ff-base);
+  --text-xs: 400 var(--body-text-xs) / 1.4 var(--ff-base);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
 body {
   background: var(--base-gray-200);
   font: var(--text-md);
+  width: 100%;
+  height: 100vh;
+
+  padding-block: 4rem 10.125rem;
 }
