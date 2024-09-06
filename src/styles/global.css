@@ -59,3 +59,19 @@ body {
 
   padding-block: 4rem 10.125rem;
 }
+
+h1 {
+  font: var(--title-md);
+}
+
+h2 {
+  font: var(--title-sm);
+}
+
+h3 {
+  font: var(--subtitle-md);
+}
+
+h4 {
+  font: var(--subtitle-sm);
+}
