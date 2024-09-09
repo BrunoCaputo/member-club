@@ -3,20 +3,39 @@ main {
   max-width: 57rem;
   height: 29.125rem;
 
-  display: grid;
-  grid-template-rows: 5.625rem auto 7.3125rem;
-  row-gap: 1rem;
-  grid-template-columns: 20rem 35.5rem;
-  column-gap: 1.5rem;
-  grid-template-areas:
-    "profile-info card"
-    "history card"
-    "history prize";
+  &.no-user {
+    width: 30rem;
+    height: 10rem;
 
-  & .card {
-    border: 1px solid var(--base-gray-300);
-    border-radius: 1rem;
     background-color: var(--base-gray-100);
+    border-radius: 1rem;
+    border: 1px solid var(--base-gray-300);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & #no-user-text {
+      color: var(--base-gray-500);
+    }
+  }
+
+  &.existing-user {
+    display: none;
+    grid-template-rows: 5.625rem auto 7.3125rem;
+    row-gap: 1rem;
+    grid-template-columns: 20rem 35.5rem;
+    column-gap: 1.5rem;
+    grid-template-areas:
+      "profile-info card"
+      "history card"
+      "history prize";
+
+    & .card {
+      border: 1px solid var(--base-gray-300);
+      border-radius: 1rem;
+      background-color: var(--base-gray-100);
+    }
   }
 }
 
