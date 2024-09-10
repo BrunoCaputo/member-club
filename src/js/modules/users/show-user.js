@@ -2,9 +2,21 @@ const avatar = document.querySelector("aside#profile .avatar");
 const userInfo = document.querySelector("aside#profile .user-info");
 const historyQuantity = document.getElementById("quantity");
 const historyList = document.querySelector("ul.history-list");
+const userId = document.getElementById("user-id");
+const fidelityCardContentItem = document.querySelectorAll(
+  "main section .fidelity-card-content .content-item"
+);
 
 export function showUserData({ userData }) {
-  const { name, profilePicture, clientSince, appointmentHistory } = userData;
+  const {
+    id,
+    name,
+    profilePicture,
+    clientSince,
+    appointmentHistory,
+    loyaltyCard,
+  } = userData;
+  const { totalCuts, cutsNeeded, cutsRemaining } = loyaltyCard;
   resetData();
 
   // Set user image
@@ -23,7 +35,7 @@ export function showUserData({ userData }) {
   userInfo.append(userName, signupDate);
 
   // Set user history
-  historyQuantity.textContent = `${appointmentHistory.length} cortes`;
+  historyQuantity.textContent = `${totalCuts} cortes`;
 
   appointmentHistory.forEach(({ date, time }) => {
     const listItem = document.createElement("li");
@@ -44,10 +56,22 @@ export function showUserData({ userData }) {
 
     historyList.appendChild(listItem);
   });
+
+  // Set user ID
+  userId.textContent = id;
+
+  // Set user loyalty card information
+  Array(totalCuts)
+    .fill(null)
+    .forEach((_, index) => {
+      const contentItem = fidelityCardContentItem[index];
+      contentItem.classList.add("marked");
+    });
 }
 
 function resetData() {
   avatar.innerHTML = "";
   userInfo.innerHTML = "";
   historyQuantity.innerHTML = "";
+  historyList.innerHTML = "";
 }
