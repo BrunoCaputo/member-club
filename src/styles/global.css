@@ -96,3 +96,18 @@ h4 {
 ul[role="list"] {
   list-style: none;
 }
+
+@media (max-width: 768px) {
+  body {
+    height: 100%;
+    padding-block: 2rem 1rem;
+  }
+
+  h1 {
+    font: var(--title-sm);
+  }
+
+  h3 {
+    font: var(--subtitle-sm);
+  }
+}
