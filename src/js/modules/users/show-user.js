@@ -6,6 +6,7 @@ const userId = document.getElementById("user-id");
 const fidelityCardContentItem = document.querySelectorAll(
   "main section .fidelity-card-content .content-item"
 );
+const progress = document.querySelector("footer.prize .progress");
 
 export function showUserData({ userData }) {
   const {
@@ -67,6 +68,35 @@ export function showUserData({ userData }) {
       const contentItem = fidelityCardContentItem[index];
       contentItem.classList.add("marked");
     });
+
+  // Set remaining cuts
+  const remaining = document.createElement("h1");
+  const remainingText = document.createElement("span");
+  remainingText.textContent = ` cortes restantes`;
+  remaining.append(cutsRemaining, remainingText);
+
+  const progressBarContainer = document.createElement("div");
+  progressBarContainer.classList.add("progress-bar-container");
+  const progressBar = document.createElement("div");
+  progressBar.classList.add("progress-bar");
+  const progressBarFill = document.createElement("div");
+  progressBarFill.classList.add("progress-bar-fill");
+  progressBarFill.style.width = `${totalCuts * 10}%`;
+  const progressBarText = document.createElement("p");
+  progressBarText.classList.add("progress-bar-text");
+  progressBarText.textContent = `${totalCuts} de ${cutsNeeded}`;
+
+  progressBar.appendChild(progressBarFill);
+  progressBarContainer.append(progressBar, progressBarText);
+
+  progress.append(remaining, progressBarContainer);
+
+  // Check if already has total cuts
+  if (totalCuts === cutsNeeded) {
+    setTimeout(() => {
+      alert("Parabéns! Seu próximo corte é gratuito!");
+    }, 100);
+  }
 }
 
 function resetData() {
@@ -74,4 +104,6 @@ function resetData() {
   userInfo.innerHTML = "";
   historyQuantity.innerHTML = "";
   historyList.innerHTML = "";
+  fidelityCardContentItem.forEach((item) => item.classList.remove("marked"));
+  progress.innerHTML = "";
 }
